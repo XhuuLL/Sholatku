@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asmaul Husna</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('img/bg.png'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            font-family: 'Arial', sans-serif;
+        }
+        .sidebar {
+            width: 300px;
+            background-color: #a9bd83;
+            color: white;
+            min-height: 100vh;
+            padding: 1rem;
+            transition: all 0.3s;
+            box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem;
+            display: block;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #fef6bf;
+        }
+
+        .card-header {
+            background-color: #fef6bf;
+        }
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #264653;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar {
+            background-color: #a9bd83;
+        }
+        .navbar-brand {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            color: white;
+        }
+        .btn-outline-secondary {
+            color: #264653;
+            border-color: #264653;
+        }
+        .btn-outline-secondary:hover {
+            background-color: #264653;
+            color: white;
+        }
+        /* Islamic pattern background */
+        .container-fluid {
+            background-image: url('https://www.w3schools.com/w3images/geometry.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+            background-image: url('darkbg.jpg'); 
+        }
+        .dark-mode .card, .dark-mode .footer, .dark-mode .navbar, .dark-mode .sidebar {
+            background-color: #1c1c1c;
+        }
+        .dark-mode .card-header {
+            background-color: #2c2c2c;
+        }
+        .dark-mode .btn-outline-secondary {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+        .dark-mode .btn-outline-secondary:hover {
+            background-color: #ffffff;
+            color: #121212;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none; /* Hide sidebar by default on smaller screens */
+            }
+            .sidebar.active {
+                display: block; /* Show sidebar when active */
+            }
+            .container-fluid {
+                padding: 1rem;
+            }
+            .d-md-none {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar flex-shrink-0">
+            <header class="text-center mb-4">
+                <h3>Home</h3>
+            </header>
+            <ul class="list-unstyled">
+                <li>
+                    <a href="home.html">
+                        <i class="fa-solid fa-kaaba"></i> Sholat Wajib
+                    </a>
+                </li>    
+                <li>
+                    <a href="sunnah.html">
+                        <i class="fas fa-mosque"> </i> Sholat Sunnah
+                    </a>
+                </li>        
+                <li>
+                    <a href="ibadahtracker.html">
+                        <i class="fa-solid fa-book-quran"></i> Ibadah Tracker
+                    </a>
+                </li> 
+                <li>
+                    <a href="quote.html">
+                        <i class="fa-solid fa-quote-right"></i> Quotes Islami
+                    </a>
+                </li>                 
+                <li>
+                    <a href="about.html">
+                        <i class="fa-solid fa-address-card"></i> About Us
+                    </a>
+                </li>        
+            
+            </ul>
+            <div class="mt-auto text-center">
+                <button class="btn  btn-sm"><a href="index.html" class="text-white text-decoration-none">Logout</a></button>
+            </div>
+            
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container-fluid p-4">
+            <header class="d-flex justify-content-between align-items-center mb-4">
+                <button class="btn btn-outline-secondary d-md-none" onclick="toggleSidebar()">☰</button>
+                <h1>Asmaul Husna</h1>
+                <button id="darkModeToggle" class="btn btn-dark">Dark Mode</button>
+            </header>
+      
+            <!-- Card for Book Details -->
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5>أسماء الله الحسنى</h5>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الرَّحْمَنُ</strong></h2>
+                <p><strong>Latin:</strong> Ar Rahman</p>
+                <p><strong>Artinya:</strong> Yang Maha Pengasih</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الرَّحِيمُ</strong></h2>
+                <p><strong>Latin:</strong> Ar Rahiim</p>
+                <p><strong>Artinya:</strong> Yang Maha Penyayang</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمَلِكُ</strong></h2>
+                <p><strong>Latin:</strong> Al Malik</p>
+                <p><strong>Artinya:</strong> Yang Maha Merajai (bisa diartikan Raja dari semua Raja)</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْقُدُّوسُ</strong></h2>
+                <p><strong>Latin:</strong> Al Quddus</p>
+                <p><strong>Artinya:</strong> Yang Maha Suci</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>السَّلاَمُ</strong></h2>
+                <p><strong>Latin:</strong> As Salaam</p>
+                <p><strong>Artinya:</strong> Yang Maha Memberi Kesejahteraan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُؤْمِنُ</strong></h2>
+                <p><strong>Latin:</strong> Al Mu’min</p>
+                <p><strong>Artinya:</strong> Yang Maha Memberi Keamanan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُهَيْمِنُ</strong></h2>
+                <p><strong>Latin:</strong> Al Muhaimin</p>
+                <p><strong>Artinya:</strong> Yang Maha Mengatur</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْعَزِيزُ</strong></h2>
+                <p><strong>Latin:</strong> Al ‘Aziiz</p>
+                <p><strong>Artinya:</strong> Yang Maha Perkasa</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْجَبَّارُ</strong></h2>
+                <p><strong>Latin:</strong> Al Jabbar</p>
+                <p><strong>Artinya:</strong> Yang Memiliki (Mutlak) Kegagahan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُتَكَبِّرُ</strong></h2>
+                <p><strong>Latin:</strong> Al Mutakabbir</p>
+                <p><strong>Artinya:</strong> Yang Maha Megah, yang memiliki kebesaran</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْخَالِقُ</strong></h2>
+                <p><strong>Latin:</strong> Al Khaliq</p>
+                <p><strong>Artinya:</strong> Yang Maha Pencipta</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْبَارِئُ</strong></h2>
+                <p><strong>Latin:</strong> Al Baari’</p>
+                <p><strong>Artinya:</strong> Yang Maha Melepaskan (membuat, membentuk, menyeimbangkan)</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُصَوِّرُ</strong></h2>
+                <p><strong>Latin:</strong> Al Mushawwir</p>
+                <p><strong>Artinya:</strong> Yang Maha Membentuk Rupa (makhluk-Nya)</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْغَفَّارُ</strong></h2>
+                <p><strong>Latin:</strong> Al Ghaffaar</p>
+                <p><strong>Artinya:</strong> Yang Maha Pengampun</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْقَهَّارُ</strong></h2>
+                <p><strong>Latin:</strong> Al Qahhaar</p>
+                <p><strong>Artinya:</strong> Yang Maha Menundukkan/Menaklukkan Segala Sesuatu</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْوَهَّابُ</strong></h2>
+                <p><strong>Latin:</strong> Al Wahhaab</p>
+                <p><strong>Artinya:</strong> Yang Maha Pemberi Karunia</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الرَّزَّاقُ</strong></h2>
+                <p><strong>Latin:</strong> Ar Razzaaq</p>
+                <p><strong>Artinya:</strong> Yang Maha Pemberi Rezeki</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْفَتَّاحُ</strong></h2>
+                <p><strong>Latin:</strong> Al Fattaah</p>
+                <p><strong>Artinya:</strong> Yang Maha Pembuka Rahmat</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْعَلِيمُ</strong></h2>
+                <p><strong>Latin:</strong> Al ‘Aliim</p>
+                <p><strong>Artinya:</strong> Yang Maha Mengetahui</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْقَابِضُ</strong></h2>
+                <p><strong>Latin:</strong> Al Qaabidh</p>
+                <p><strong>Artinya:</strong> Yang Maha Menyempitkan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْبَاسِطُ</strong></h2>
+                <p><strong>Latin:</strong> Al Baasith</p>
+                <p><strong>Artinya:</strong> Yang Maha Melapangkan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْخَافِضُ</strong></h2>
+                <p><strong>Latin:</strong> Al Khaafidh</p>
+                <p><strong>Artinya:</strong> Yang Maha Merendahkan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الرَّافِعُ</strong></h2>
+                <p><strong>Latin:</strong> Ar Raafi’</p>
+                <p><strong>Artinya:</strong> Yang Maha Meninggikan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>المُعِزُّ</strong></h2>
+                <p><strong>Latin:</strong> Al Mu’izz</p>
+                <p><strong>Artinya:</strong> Yang Maha Memuliakan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>المُذِلُّ</strong></h2>
+                <p><strong>Latin:</strong> Al Mudzil</p>
+                <p><strong>Artinya:</strong> Yang Maha Menghinakan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>السَّمِيعُ</strong></h2>
+                <p><strong>Latin:</strong> Al Samii’</p>
+                <p><strong>Artinya:</strong> Yang Maha Mendengar</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>البَصِيرُ</strong></h2>
+                <p><strong>Latin:</strong> Al Bashiir</p>
+                <p><strong>Artinya:</strong> Yang Maha Melihat</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْحَكَمُ</strong></h2>
+                <p><strong>Latin:</strong> Al Hakam</p>
+                <p><strong>Artinya:</strong> Yang Maha Menetapkan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْعَدْلُ</strong></h2>
+                <p><strong>Latin:</strong> Al ‘Adl</p>
+                <p><strong>Artinya:</strong> Yang Maha Adil</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>اللَّطِيفُ</strong></h2>
+                <p><strong>Latin:</strong> Al Lathiif</p>
+                <p><strong>Artinya:</strong> Yang Maha Lembut</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْخَبِيرُ</strong></h2>
+                <p><strong>Latin:</strong> Al Khabiir</p>
+                <p><strong>Artinya:</strong> Yang Maha Mengenal</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْحَلِيمُ</strong></h2>
+                <p><strong>Latin:</strong> Al Haliim</p>
+                <p><strong>Artinya:</strong> Yang Maha Penyantun</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْعَظِيمُ</strong></h2>
+                <p><strong>Latin:</strong> Al ‘Azhiim</p>
+                <p><strong>Artinya:</strong> Yang Maha Agung</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْغَفُورُ</strong></h2>
+                <p><strong>Latin:</strong> Al Ghafuur</p>
+                <p><strong>Artinya:</strong> Yang Maha Memberi Pengampunan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الشَّكُورُ</strong></h2>
+                <p><strong>Latin:</strong> As Syakuur</p>
+                <p><strong>Artinya:</strong> Yang Maha Pembalas Budi (menghargai)</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْعَلِيُّ</strong></h2>
+                <p><strong>Latin:</strong> Al ‘Aliy</p>
+                <p><strong>Artinya:</strong> Yang Maha Tinggi</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْكَبِيرُ</strong></h2>
+                <p><strong>Latin:</strong> Al Kabiir</p>
+                <p><strong>Artinya:</strong> Yang Maha Besar</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْحَفِيظُ</strong></h2>
+                <p><strong>Latin:</strong> Al Hafizh</p>
+                <p><strong>Artinya:</strong> Yang Maha Memelihara</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُقِيتُ</strong></h2>
+                <p><strong>Latin:</strong> Al Muqiit</p>
+                <p><strong>Artinya:</strong> Yang Maha Pemberi Kecukupan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْحَسِيبُ</strong></h2>
+                <p><strong>Latin:</strong> Al Hasiib</p>
+                <p><strong>Artinya:</strong> Yang Maha Membuat Perhitungan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْجَلِيلُ</strong></h2>
+                <p><strong>Latin:</strong> Al Jaliil</p>
+                <p><strong>Artinya:</strong> Yang Maha Luhur</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْكَرِيمُ</strong></h2>
+                <p><strong>Latin:</strong> Al Kariim</p>
+                <p><strong>Artinya:</strong> Yang Maha Pemurah</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الرَّقِيبُ</strong></h2>
+                <p><strong>Latin:</strong> Ar Raqiib</p>
+                <p><strong>Artinya:</strong> Yang Maha Mengawasi</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُجِيبُ</strong></h2>
+                <p><strong>Latin:</strong> Al Mujiib</p>
+                <p><strong>Artinya:</strong> Yang Maha Mengabulkan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْوَاسِعُ</strong></h2>
+                <p><strong>Latin:</strong> Al Waasi’</p>
+                <p><strong>Artinya:</strong> Yang Maha Luas</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْحَكِيمُ</strong></h2>
+                <p><strong>Latin:</strong> Al Hakim</p>
+                <p><strong>Artinya:</strong> Yang Maha Bijaksana</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْوَدُودُ</strong></h2>
+                <p><strong>Latin:</strong> Al Waduud</p>
+                <p><strong>Artinya:</strong> Yang Maha Mengasihi</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمَجِيدُ</strong></h2>
+                <p><strong>Latin:</strong> Al Majiid</p>
+                <p><strong>Artinya:</strong> Yang Maha Mulia</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْبَاعِثُ</strong></h2>
+                <p><strong>Latin:</strong> Al Baa’its</p>
+                <p><strong>Artinya:</strong> Yang Maha Membangkitkan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الشَّهِيدُ</strong></h2>
+                <p><strong>Latin:</strong> As Syahiid</p>
+                <p><strong>Artinya:</strong> Yang Maha Menyaksikan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْحَقُّ</strong></h2>
+                <p><strong>Latin:</strong> Al Haqq</p>
+                <p><strong>Artinya:</strong> Yang Maha Benar</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْوَكِيلُ</strong></h2>
+                <p><strong>Latin:</strong> Al Wakiil</p>
+                <p><strong>Artinya:</strong> Yang Maha Memelihara</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْقَوِيُّ</strong></h2>
+                <p><strong>Latin:</strong> Al Qawiyyu</p>
+                <p><strong>Artinya:</strong> Yang Maha Kuat</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمَتِينُ</strong></h2>
+                <p><strong>Latin:</strong> Al Matiin</p>
+                <p><strong>Artinya:</strong> Yang Maha Kokoh</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْوَلِيُّ</strong></h2>
+                <p><strong>Latin:</strong> Al Waliyy</p>
+                <p><strong>Artinya:</strong> Yang Maha Melindungi</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْحَمِيدُ</strong></h2>
+                <p><strong>Latin:</strong> Al Hamiid</p>
+                <p><strong>Artinya:</strong> Yang Maha Terpuji</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُحْصِي</strong></h2>
+                <p><strong>Latin:</strong> Al Muhshii</p>
+                <p><strong>Artinya:</strong> Yang Maha Mengalkulasi (menghitung segala sesuatu)</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُبْدِئُ</strong></h2>
+                <p><strong>Latin:</strong> Al Mubdi’</p>
+                <p><strong>Artinya:</strong> Yang Maha Memulai</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُعِيدُ</strong></h2>
+                <p><strong>Latin:</strong> Al Mu’iid</p>
+                <p><strong>Artinya:</strong> Yang Maha Mengembalikan Kehidupan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُحْيِي</strong></h2>
+                <p><strong>Latin:</strong> Al Muhyii</p>
+                <p><strong>Artinya:</strong> Yang Maha Menghidupkan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُمِيتُ</strong></h2>
+                <p><strong>Latin:</strong> Al Mumiitu</p>
+                <p><strong>Artinya:</strong> Yang Maha Mematikan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْحَيُّ</strong></h2>
+                <p><strong>Latin:</strong> Al Hayyu</p>
+                <p><strong>Artinya:</strong> Yang Maha Hidup</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْقَيُّومُ</strong></h2>
+                <p><strong>Latin:</strong> Al Qayyuum</p>
+                <p><strong>Artinya:</strong> Yang Maha Mandiri</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْوَاجِدُ</strong></h2>
+                <p><strong>Latin:</strong> Al Waajid</p>
+                <p><strong>Artinya:</strong> Yang Maha Penemu</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمَاجِدُ</strong></h2>
+                <p><strong>Latin:</strong> Al Maajid</p>
+                <p><strong>Artinya:</strong> Yang Maha Mulia</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْوَحِيدُ</strong></h2>
+                <p><strong>Latin:</strong> Al Wahid</p>
+                <p><strong>Artinya:</strong> Yang Maha Tunggal</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الاَحَدُ</strong></h2>
+                <p><strong>Latin:</strong> Al Ahad</p>
+                <p><strong>Artinya:</strong> Yang Maha Esa</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الصَّمَدُ</strong></h2>
+                <p><strong>Latin:</strong> As Shamad</p>
+                <p><strong>Artinya:</strong> Yang Maha Dibutuhkan (tempat meminta)</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْقَادِرُ</strong></h2>
+                <p><strong>Latin:</strong> Al Qaadir</p>
+                <p><strong>Artinya:</strong> Yang Maha Menentukan, Maha Menyeimbangkan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُقْتَدِرُ</strong></h2>
+                <p><strong>Latin:</strong> Al Muqtadir</p>
+                <p><strong>Artinya:</strong> Yang Maha Berkuasa</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُقَدِّمُ</strong></h2>
+                <p><strong>Latin:</strong> Al Muqaddim</p>
+                <p><strong>Artinya:</strong> Yang Maha Mendahulukan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُؤَخِّرُ</strong></h2>
+                <p><strong>Latin:</strong> Al Mu’akkhir</p>
+                <p><strong>Artinya:</strong> Yang Maha Mengakhirkan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الأوَّلُ</strong></h2>
+                <p><strong>Latin:</strong> Al Awwal</p>
+                <p><strong>Artinya:</strong> Yang Maha Awal</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الأخِرُ</strong></h2>
+                <p><strong>Latin:</strong> Al Aakhir</p>
+                <p><strong>Artinya:</strong> Yang Maha Akhir</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الظَّاهِرُ</strong></h2>
+                <p><strong>Latin:</strong> Az Zhaahir</p>
+                <p><strong>Artinya:</strong> Yang Maha Nyata</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْبَاطِنُ</strong></h2>
+                <p><strong>Latin:</strong> Al Baathin</p>
+                <p><strong>Artinya:</strong> Yang Maha Ghaib</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْوَالِي</strong></h2>
+                <p><strong>Latin:</strong> Al Waali</p>
+                <p><strong>Artinya:</strong> Yang Maha Memerintah</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُتَعَالِي</strong></h2>
+                <p><strong>Latin:</strong> Al Muta’aalii</p>
+                <p><strong>Artinya:</strong> Yang Maha Tinggi</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْبَرُّ</strong></h2>
+                <p><strong>Latin:</strong> Al Barru</p>
+                <p><strong>Artinya:</strong> Yang Maha Penderma (Maha Pemberi Kebajikan)</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>التَّوَّابُ</strong></h2>
+                <p><strong>Latin:</strong> At Tawwaab</p>
+                <p><strong>Artinya:</strong> Yang Maha Penerima Taubat</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُنْتَقِمُ</strong></h2>
+                <p><strong>Latin:</strong> Al Muntaqim</p>
+                <p><strong>Artinya:</strong> Yang Maha Pemberi Balasan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْعَفُوُّ</strong></h2>
+                <p><strong>Latin:</strong> Al Afuww</p>
+                <p><strong>Artinya:</strong> Yang Maha Pemaaf</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الرَّؤُوفُ</strong></h2>
+                <p><strong>Latin:</strong> Ar Ra’uuf</p>
+                <p><strong>Artinya:</strong> Yang Maha Pengasuh</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>مَالِكُ الْمُلْكِ</strong></h2>
+                <p><strong>Latin:</strong> Malikul Mulk</p>
+                <p><strong>Artinya:</strong> Yang Maha Penguasa Kerajaan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>ذُو الْجَلَالِ وَالإِكْرَامِ</strong></h2>
+                <p><strong>Latin:</strong> Dzul Jalaali WalIkraam</p>
+                <p><strong>Artinya:</strong> Yang Maha Pemilik Kebesaran dan Kemuliaan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُقْسِطُ</strong></h2>
+                <p><strong>Latin:</strong> Al Muqsith</p>
+                <p><strong>Artinya:</strong> Yang Maha Pemberi Keadilan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْجَامِعُ</strong></h2>
+                <p><strong>Latin:</strong> Al Jamii’</p>
+                <p><strong>Artinya:</strong> Yang Maha Mengumpulkan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْغَنِيُّ</strong></h2>
+                <p><strong>Latin:</strong> Al Ghaniyy</p>
+                <p><strong>Artinya:</strong> Yang Maha Kaya</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمُغْنِيُ</strong></h2>
+                <p><strong>Latin:</strong> Al Mughnii</p>
+                <p><strong>Artinya:</strong> Yang Maha Pemberi Kekayaan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْمَانِعُ</strong></h2>
+                <p><strong>Latin:</strong> Al Maani</p>
+                <p><strong>Artinya:</strong> Yang Maha Mencegah</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الضَّارُ</strong></h2>
+                <p><strong>Latin:</strong> Ad Dhaar</p>
+                <p><strong>Artinya:</strong> Yang Maha Penimpa Kemudharatan</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>النَّافِعُ</strong></h2>
+                <p><strong>Latin:</strong> An Nafii’</p>
+                <p><strong>Artinya:</strong> Yang Maha Memberi Manfaat</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>النُّورُ</strong></h2>
+                <p><strong>Latin:</strong> An Nuur</p>
+                <p><strong>Artinya:</strong> Yang Maha Bercahaya</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْهَادِي</strong></h2>
+                <p><strong>Latin:</strong> Al Haadii</p>
+                <p><strong>Artinya:</strong> Yang Maha Pemberi Petunjuk</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْبَدِيعُ</strong></h2>
+                <p><strong>Latin:</strong> Al Badii’</p>
+                <p><strong>Artinya:</strong> Yang Maha Pencipta Tiada Bandingannya</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْبَاقِي</strong></h2>
+                <p><strong>Latin:</strong> Al Baaqii</p>
+                <p><strong>Artinya:</strong> Yang Maha Kekal</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الْوَارِثُ</strong></h2>
+                <p><strong>Latin:</strong> Al Waarits</p>
+                <p><strong>Artinya:</strong> Yang Maha Pewaris</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الرَّشِيدُ</strong></h2>
+                <p><strong>Latin:</strong> Ar Rasyiid</p>
+                <p><strong>Artinya:</strong> Yang Maha Pandai</p>
+            </div>
+            <div class="mb-3">
+                <h2 class="text-end"><strong>الصَّبُورُ</strong></h2>
+                <p><strong>Latin:</strong> As Shabuur</p>
+                <p><strong>Artinya:</strong> Yang Maha Sabar</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('darkModeToggle').onclick = function() {
+            document.body.classList.toggle('dark-mode');
+        }
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
